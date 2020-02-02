@@ -1,9 +1,9 @@
-import BaseStorage, { MyConsumablesStorage } from "./BaseStorage";
-import MyConsumables from "../MyConsumables";
+import BaseStorage, { MyConsumablesStorage } from './BaseStorage';
+import MyConsumables from '../MyConsumables';
 
 export default class LocalStorage extends BaseStorage {
   save(myConsumables: MyConsumables): void {
-    localStorage.setItem(this._key, myConsumables.toJson());
+    localStorage.setItem(this._key, myConsumables.toJSON());
   }
   get(): MyConsumablesStorage {
     const data = localStorage.getItem(this._key);
@@ -11,7 +11,7 @@ export default class LocalStorage extends BaseStorage {
     if (!data) {
       return { consumables: [] };
     }
-console.log(JSON.parse(data));
+
     return JSON.parse(data);
   }
   delete(): void {

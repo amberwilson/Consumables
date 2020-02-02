@@ -23,7 +23,7 @@ class MyConsumables {
     this.consumables.filter(c => c.uid !== consumable.uid);
   }
 
-  toJson(): string {
+  toJSON(): string {
     return JSON.stringify({ consumables: this.consumables });
   }
 

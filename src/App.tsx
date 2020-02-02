@@ -1,40 +1,38 @@
-import * as React from "react";
-import "./styles.css";
-import MyConsumables from "./classes/MyConsumables";
-// import MovieElement from "./components/MovieElement";
-import Movie, { MovieGenre } from "./classes/Movie";
-import LocalStorage from "./classes/storage/LocalStorage";
-import ConsumablesList from "./components/ConsumablesList";
+import * as React from 'react';
+import './styles.css';
 
-import { identity, loggingIdentity } from "./classes/Generic";
+import MyConsumables from './classes/MyConsumables';
+import Movie, { MovieGenre } from './classes/Movie';
+import Show, { ShowGenre } from './classes/Show';
+import LocalStorage from './classes/storage/LocalStorage';
+import ConsumablesList from './components/ConsumablesList';
 
 export default function App() {
-  const storage = new LocalStorage("my-consumables");
+  const storage = new LocalStorage('my-consumables');
   const myConsumables = new MyConsumables(storage);
 
   const backToTheFuture = new Movie();
-  backToTheFuture.title = "Back to the Future";
+  backToTheFuture.title = 'Back to the Future';
   backToTheFuture.genres.push(MovieGenre.Action);
   backToTheFuture.genres.push(MovieGenre.ScienceFiction);
   myConsumables.addConsumable(backToTheFuture);
 
   const silenceOfTheLambs = new Movie();
-  silenceOfTheLambs.title = "Silence of the Lambs 2";
+  silenceOfTheLambs.title = 'Silence of the Lambs';
   silenceOfTheLambs.genres.push(MovieGenre.Action);
   silenceOfTheLambs.genres.push(MovieGenre.Horror);
   myConsumables.addConsumable(silenceOfTheLambs);
-  console.log("silenceOfTheLambs", JSON.stringify(silenceOfTheLambs));
+
+  const hannibal = new Show();
+  hannibal.title = 'Hannibal';
+  hannibal.genres.push(ShowGenre.Action);
+  hannibal.genres.push(ShowGenre.Horror);
+  myConsumables.addConsumable(hannibal);
+
   myConsumables.save();
 
-  // console.log(identity("Potato"));
-  // console.log(loggingIdentity(["Potato"]));
-  // let myIdentity1: <U>(arg: U) => U = identity;
-  // let myIdentity2: {<T>(arg: T): T} = identity;
-
-  // const storage = new LocalStorage("my-consumables");
   const otherCon = new MyConsumables(storage);
   otherCon.load();
-  console.log("loaded consumables", otherCon.consumables);
 
   return (
     <div className="App">

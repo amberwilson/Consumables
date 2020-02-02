@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 
-import Consumable, { ConsumableType } from "../classes/Consumable";
-import MovieElement from "./MovieElement";
-import BookElement from "./BookElement";
-import Book from "../classes/Book";
-import Movie from "../classes/Movie";
+import Consumable, { ConsumableType } from '../classes/Consumable';
+import MovieElement from './MovieElement';
+import BookElement from './BookElement';
+import Book from '../classes/Book';
+import Movie from '../classes/Movie';
 
 type Props = {
   consumable: Consumable;
@@ -17,7 +17,10 @@ const ConsumableElement: React.FunctionComponent<Props> = ({ consumable }) => {
       return <MovieElement movie={consumable as Movie} />;
   }
 
-  return <>Oops {console.log(consumable)}</>;
+  console.error(
+    `Unsupported ConsumableType ${JSON.stringify(consumable)} - skipping output`
+  );
+  return null;
 };
 
 export default ConsumableElement;
