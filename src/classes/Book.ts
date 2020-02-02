@@ -17,10 +17,8 @@ enum BookGenre {
 
 class Book extends Consumable {
   author?: string;
-
-  get type(): ConsumableType {
-    return ConsumableType.Book;
-  }
+  genres: BookGenre[] = [];
+  readonly type = ConsumableType.Book;
 }
 
 export default Book;

@@ -10,10 +10,7 @@ enum ShowGenre {
 
 export default class Show extends Consumable {
   genres: ShowGenre[] = [];
-
-  get type(): ConsumableType {
-    return ConsumableType.Show;
-  }
+  readonly type = ConsumableType.Show;
 }
 
 export { ShowGenre };

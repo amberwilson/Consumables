@@ -17,8 +17,7 @@ abstract class Consumable {
   releaseDate?: Date;
   createdAt: Date = new Date();
   editedAt?: Date;
-
-  abstract get type(): ConsumableType;
+  abstract readonly type: ConsumableType;
 
   constructor() {
     this.uid = cuid();
