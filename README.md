@@ -1,2 +1,0 @@
-# Consumables
-Created with CodeSandbox
